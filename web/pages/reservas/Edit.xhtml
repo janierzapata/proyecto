@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditReservasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditReservasLabel_idUsuario}" for="idUsuario" />
+                    <h:inputText id="idUsuario" value="#{reservasController.selected.idUsuario}" title="#{bundle.EditReservasTitle_idUsuario}" required="true" requiredMessage="#{bundle.EditReservasRequiredMessage_idUsuario}"/>
+                    <h:outputLabel value="#{bundle.EditReservasLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{reservasController.selected.nombre}" title="#{bundle.EditReservasTitle_nombre}" required="true" requiredMessage="#{bundle.EditReservasRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditReservasLabel_correo}" for="correo" />
+                    <h:inputText id="correo" value="#{reservasController.selected.correo}" title="#{bundle.EditReservasTitle_correo}" required="true" requiredMessage="#{bundle.EditReservasRequiredMessage_correo}"/>
+                    <h:outputLabel value="#{bundle.EditReservasLabel_celular}" for="celular" />
+                    <h:inputText id="celular" value="#{reservasController.selected.celular}" title="#{bundle.EditReservasTitle_celular}" required="true" requiredMessage="#{bundle.EditReservasRequiredMessage_celular}"/>
+                    <h:outputLabel value="#{bundle.EditReservasLabel_hora}" for="hora" />
+                    <h:inputText id="hora" value="#{reservasController.selected.hora}" title="#{bundle.EditReservasTitle_hora}" required="true" requiredMessage="#{bundle.EditReservasRequiredMessage_hora}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                </h:panelGrid>
+                <h:commandLink action="#{reservasController.update}" value="#{bundle.EditReservasSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditReservasViewLink}"/>
+                <br />
+                <h:commandLink action="#{reservasController.prepareList}" value="#{bundle.EditReservasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditReservasIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
