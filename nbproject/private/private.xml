@@ -5,8 +5,8 @@
         <group>
             <file>file:/C:/Users/crga_/Desktop/janier/proyecto/web/pages/usuario/Create.xhtml</file>
             <file>file:/C:/Users/crga_/Desktop/janier/proyecto/web/index.xhtml</file>
-            <file>file:/C:/Users/crga_/Desktop/janier/proyecto/web/pages/reservas/Create.xhtml</file>
-            <file>file:/C:/Users/crga_/Desktop/janier/proyecto/web/resources/css/jsfcrud.css</file>
+            <file>file:/C:/Users/crga_/Desktop/janier/proyecto/web/login.xhtml</file>
+            <file>file:/C:/Users/crga_/Desktop/janier/proyecto/web/pages/usuario/List.xhtml</file>
             <file>file:/C:/Users/crga_/Desktop/janier/proyecto/src/java/jsf/clases/UsuarioController.java</file>
         </group>
     </open-files>
