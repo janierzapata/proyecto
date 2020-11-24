@@ -5,35 +5,80 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.CreateUsuarioTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateUsuarioLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{usuarioController.selected.id}" title="#{bundle.CreateUsuarioTitle_id}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_id}"/>
-                    <h:outputLabel value="#{bundle.CreateUsuarioLabel_nombre}" for="nombre" />
-                    <h:inputText id="nombre" value="#{usuarioController.selected.nombre}" title="#{bundle.CreateUsuarioTitle_nombre}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_nombre}"/>
-                    <h:outputLabel value="#{bundle.CreateUsuarioLabel_correo}" for="correo" />
-                    <h:inputText id="correo" value="#{usuarioController.selected.correo}" title="#{bundle.CreateUsuarioTitle_correo}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_correo}"/>
-                    <h:outputLabel value="#{bundle.CreateUsuarioLabel_contraseña}" for="contraseña" />
-                    <h:inputText id="contraseña" value="#{usuarioController.selected.contraseña}" title="#{bundle.CreateUsuarioTitle_contraseña}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_contraseña}"/>
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{usuarioController.create}" value="#{bundle.CreateUsuarioSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{usuarioController.prepareList}" value="#{bundle.CreateUsuarioShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateUsuarioIndexLink}"/>
-            </h:form>
-        </ui:define>
-    </ui:composition>
+   
+    <h:head>
+        <link rel="stylesheet" href="main.css"></link>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"></link>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    </h:head>
+    <h:body>
+        <ui:composition template="/template.xhtml">
+            <ui:define name="title">
+                <h:outputText value="Nuevo Usuario" style="color: #525965"></h:outputText>
+            </ui:define>
+            <ui:define name="body">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:form>
+                    <div id="container-register">
+
+                        <div id="title">
+                            Nuevo Registro
+                        </div>
+
+
+                        <div class="input">
+                            <div class="input-addon">
+                                <h:outputLabel value="#{bundle.CreateUsuarioLabel_nombre}" for="nombre" />
+                            </div>
+                            <h:inputText id="nombre" value="#{usuarioController.selected.nombre}" title="#{bundle.CreateUsuarioTitle_nombre}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_nombre}"/>
+                        </div>
+
+                        <div class="input">
+                            <div class="input-addon">
+                                <h:outputLabel value="#{bundle.CreateUsuarioLabel_correo}" for="correo" />
+                            </div>
+                            <h:inputText id="correo" value="#{usuarioController.selected.correo}" title="#{bundle.CreateUsuarioTitle_correo}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_correo}"/>
+                        </div>
+
+                        <div class="input">
+                            <div class="input-addon">
+                                <h:outputLabel value="Clave: " for="contraseña" />
+                            </div>
+                            <h:inputText id="contraseña" value="#{usuarioController.selected.contraseña}" title="#{bundle.CreateUsuarioTitle_contraseña}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_contraseña}"/>
+                        </div>
+
+
+                        <br />
+                        <div>
+                            <div class="botones">
+                                <h:commandLink action="#{usuarioController.create}" value="Registrar" />
+                            </div>
+
+                            <br />
+                            <div class="botones">
+                                <h:link outcome="/index" value="Volver"/>
+                            </div>
+                        </div>
+                        <div class="register">
+                            ¿Ya tienes una cuenta?
+                            <br/>
+                            <a href="index.xhtml"><button id="register-link">Iniciar Sección</button></a>
+                        </div>
+                    </div>
+
+
+
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
 </html>
